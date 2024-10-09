@@ -40,6 +40,13 @@ public class TagCommand extends Command {
     private final Index targetIndex;
     private final Tag tag;
 
+    /**
+     * Creates a TagCommand to tag the specified person with a given tag.
+     *
+     * @param targetIndex The index of the person in the filtered person list to be tagged.
+     * @param tag The tag to be applied to the specified person.
+     * @throws NullPointerException if {@code targetIndex} or {@code tag} is null.
+     */
     public TagCommand(Index targetIndex, Tag tag) {
         requireNonNull(targetIndex);
         requireNonNull(tag);
@@ -79,7 +86,8 @@ public class TagCommand extends Command {
         Set<Tag> newTags = new HashSet<>(personToTag.getTags());
         newTags.add(tag);
 
-        Person updatedPerson = new Person(personToTag.getName(), personToTag.getPhone(), personToTag.getEmail(), personToTag.getAddress(), newTags);
+        Person updatedPerson = new Person(personToTag.getName(),
+                personToTag.getPhone(), personToTag.getEmail(), personToTag.getAddress(), newTags);
         model.setPerson(personToTag, updatedPerson);
 
         return new CommandResult(String.format(MESSAGE_TAG_PERSON_SUCCESS, Messages.format(personToTag)));

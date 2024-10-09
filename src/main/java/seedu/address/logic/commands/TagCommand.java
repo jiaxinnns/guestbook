@@ -1,5 +1,15 @@
 package seedu.address.logic.commands;
 
+// Static imports
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+
+// Standard Java packages
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+// Project-specific imports
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
@@ -7,13 +17,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 /**
  * Tags a guest identified using it's displayed index from the address book with a tag already created.
@@ -23,7 +26,8 @@ public class TagCommand extends Command {
     public static final String COMMAND_WORD = "tag";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Tags the person identified by the index number used in the displayed person list with a predefined tag. \n"
+            + ": Tags the person identified by the index number used in the displayed person list "
+            + "with a predefined tag. \n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -44,6 +48,13 @@ public class TagCommand extends Command {
         this.tag = tag;
     }
 
+    /**
+     * Executes the tag command and tags a person with a predefined tag.
+     *
+     * @param model The model containing the list of persons.
+     * @return The command result indicating the success of the tag operation.
+     * @throws CommandException If the index is out of bounds or the tag already exists.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

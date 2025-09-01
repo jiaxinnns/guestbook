@@ -3,5 +3,5 @@
 
 * The AB3 My Guest project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 * AB3 My Guest centralises guest information for wedding planners. It will help manage the contact details, RSVP status and customised tags of a small number of invitees.
-  * It is **written in OOP fashion**. It provides a **reasonably well-written** code base **bigger** (around 6 KLoC) than what students usually write in beginner-level SE modules, without being overwhelmingly big.
-  * It comes with a **reasonable level of user and developer documentation**.
+
+User Guide & Developer Guide: https://ay2425s1-cs2103t-w11-2.github.io/tp/
